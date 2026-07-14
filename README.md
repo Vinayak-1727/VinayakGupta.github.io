@@ -1,4 +1,4 @@
-# Hitesh Nagar's Portfolio
+# Vinayak Guptas Portfolio
 
 This is my personal portfolio website built with React and Vite.
 
