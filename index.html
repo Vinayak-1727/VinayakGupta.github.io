@@ -460,331 +460,58 @@
     font-size: 0.75rem;
   }
 
-  /* ── TRAVEL ──────────────────────────────────────── */
-  .travel-intro {
+  /* ── RESEARCH INTERESTS ──────────────────────────── */
+  .interests-intro {
     font-size: 1rem;
     color: var(--ink-muted);
     line-height: 1.8;
     margin-bottom: 2rem;
   }
 
-  .travel-grid {
+  .interests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 0.85rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
 
-  .travel-card {
+  @media (max-width: 560px) { .interests-grid { grid-template-columns: 1fr; } }
+
+  .interest-card {
     background: var(--cream-dark);
     border: 0.5px solid var(--border);
-    border-radius: 12px;
-    padding: 0;
-    display: flex; flex-direction: column;
-    transition: border-color 0.2s, transform 0.18s, box-shadow 0.18s;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .travel-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(26,24,22,0.10);
-  }
-
-  .travel-card-thumb {
-    width: 100%;
-    aspect-ratio: 4/3;
-    background: var(--cream-dark);
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  .travel-card-thumb img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-
-  .travel-card:hover .travel-card-thumb img {
-    transform: scale(1.04);
-  }
-
-  .travel-card-thumb .thumb-placeholder {
-    font-size: 2rem;
-    opacity: 0.5;
-  }
-
-  .travel-card-thumb .photo-count {
-    position: absolute;
-    bottom: 6px; right: 8px;
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: #fff;
-    background: rgba(26,24,22,0.55);
-    backdrop-filter: blur(4px);
-    border-radius: 999px;
-    padding: 0.15rem 0.55rem;
-    letter-spacing: 0.03em;
-  }
-
-  .travel-card-thumb .add-hint {
-    position: absolute;
-    inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 0.3rem;
-    opacity: 0;
-    background: rgba(193,125,60,0.12);
-    transition: opacity 0.2s;
-    font-size: 0.72rem;
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .travel-card:hover .add-hint { opacity: 1; }
-
-  .travel-card-info {
-    padding: 0.8rem 1rem;
-    display: flex; flex-direction: column; gap: 0.2rem;
-  }
-
-  .travel-emoji {
-    font-size: 1rem;
-    line-height: 1;
-  }
-
-  .travel-place {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--ink);
-  }
-
-  .travel-state {
-    font-size: 0.72rem;
-    color: var(--ink-faint);
-    line-height: 1.4;
-  }
-
-  /* ── LIGHTBOX MODAL ──────────────────────────────── */
-  .lb-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(20,18,15,0.82);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    align-items: center; justify-content: center;
+    border-radius: 14px;
     padding: 1.5rem;
-  }
-
-  .lb-overlay.open { display: flex; }
-
-  .lb-modal {
-    background: var(--cream);
-    border-radius: 18px;
-    border: 0.5px solid var(--border-strong);
-    width: 100%;
-    max-width: 860px;
-    max-height: 90vh;
     display: flex; flex-direction: column;
-    overflow: hidden;
-    animation: scaleIn 0.22s ease;
+    gap: 0.65rem;
+    transition: border-color 0.2s, background 0.2s;
   }
 
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.96); }
-    to   { opacity: 1; transform: scale(1); }
+  .interest-card:hover {
+    border-color: var(--accent);
+    background: var(--accent-pale);
   }
 
-  .lb-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 1.5rem;
-    border-bottom: 0.5px solid var(--border);
-    flex-shrink: 0;
-  }
-
-  .lb-title {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-family: var(--serif);
+  .interest-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
     font-size: 1.1rem;
+  }
+
+  .interest-title {
+    font-family: var(--serif);
+    font-size: 1rem;
     font-weight: 500;
     color: var(--ink);
+    line-height: 1.3;
   }
 
-  .lb-title-emoji { font-size: 1.2rem; }
-
-  .lb-subtitle {
-    font-size: 0.78rem;
-    color: var(--ink-faint);
-    font-family: var(--sans);
-    font-weight: 400;
-    margin-top: 0.1rem;
-  }
-
-  .lb-close {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    border: 0.5px solid var(--border-strong);
-    background: transparent;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ink-muted);
-    font-size: 1rem;
-    transition: background 0.15s, color 0.15s;
-    flex-shrink: 0;
-  }
-
-  .lb-close:hover { background: var(--ink); color: var(--cream); }
-
-  .lb-body {
-    flex: 1; overflow-y: auto;
-    padding: 1.25rem 1.5rem;
-    display: flex; flex-direction: column; gap: 1.25rem;
-  }
-
-  /* Upload zone */
-  .lb-upload-zone {
-    border: 1.5px dashed var(--accent-light);
-    border-radius: 12px;
-    padding: 1.25rem;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.18s, border-color 0.18s;
-    background: var(--accent-pale);
-    flex-shrink: 0;
-  }
-
-  .lb-upload-zone:hover, .lb-upload-zone.drag-over {
-    background: #F0D9BE;
-    border-color: var(--accent);
-  }
-
-  .lb-upload-zone input[type="file"] { display: none; }
-
-  .lb-upload-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
-
-  .lb-upload-text {
-    font-size: 0.82rem;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-
-  .lb-upload-text strong {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  /* Gallery grid */
-  .lb-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .lb-gallery-empty {
-    text-align: center;
-    padding: 2rem;
-    color: var(--ink-faint);
+  .interest-desc {
     font-size: 0.88rem;
-    grid-column: 1 / -1;
-  }
-
-  .lb-img-wrap {
-    position: relative;
-    aspect-ratio: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    background: var(--cream-dark);
-    border: 0.5px solid var(--border);
-  }
-
-  .lb-img-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.25s ease;
-  }
-
-  .lb-img-wrap:hover img { transform: scale(1.05); }
-
-  .lb-img-del {
-    position: absolute; top: 6px; right: 6px;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: rgba(20,18,15,0.6);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem;
-    opacity: 0;
-    transition: opacity 0.15s;
-    line-height: 1;
-  }
-
-  .lb-img-wrap:hover .lb-img-del { opacity: 1; }
-
-  /* Full-size viewer */
-  .lb-viewer {
-    display: none;
-    position: fixed; inset: 0; z-index: 1100;
-    background: rgba(10,9,8,0.92);
-    align-items: center; justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem;
-  }
-
-  .lb-viewer.open { display: flex; }
-
-  .lb-viewer img {
-    max-width: 100%; max-height: 80vh;
-    border-radius: 10px;
-    object-fit: contain;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  }
-
-  .lb-viewer-close {
-    position: absolute; top: 1.25rem; right: 1.25rem;
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    border: 0.5px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s;
-  }
-
-  .lb-viewer-close:hover { background: rgba(255,255,255,0.18); }
-
-  .lb-viewer-nav {
-    display: flex; align-items: center; gap: 1rem;
-  }
-
-  .lb-viewer-btn {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    border: 0.5px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s;
-  }
-
-  .lb-viewer-btn:hover { background: rgba(255,255,255,0.18); }
-
-  .lb-viewer-counter {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.5);
-    min-width: 60px;
-    text-align: center;
+    color: var(--ink-muted);
+    line-height: 1.65;
   }
 
   /* ── FOOTER ──────────────────────────────────────── */
@@ -861,7 +588,7 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#travel">Travel</a></li>
+    <li><a href="#interests">Interests</a></li>
   </ul>
 </nav>
 
@@ -1078,54 +805,55 @@
   </div>
 </section>
 
-<!-- TRAVEL -->
-<section id="travel">
+<!-- RESEARCH INTERESTS -->
+<section id="interests">
   <div class="reveal">
-    <p class="section-label">Travel</p>
-    <h2>Places I've been</h2>
-    <p class="travel-intro">
-      A quick look at where the work has taken me so far — from campus at Pilani to the lab 
-      bench in Delhi. Click any city to view photos from the `photos` folder.
+    <p class="section-label">Interests</p>
+    <h2>Research interests</h2>
+    <p class="interests-intro">
+      The threads I keep coming back to — where biology needs computation to make sense of it.
     </p>
-    <div class="travel-grid" id="travelGrid">
-      <!-- cards injected by JS -->
+    <div class="interests-grid">
+
+      <div class="interest-card">
+        <div class="interest-icon">🧬</div>
+        <div class="interest-title">RNA Structure &amp; Dynamics</div>
+        <p class="interest-desc">
+          Molecular dynamics simulation of RNA molecules and RNA–lipid interactions, and 
+          understanding conformational stability through trajectory analysis.
+        </p>
+      </div>
+
+      <div class="interest-card">
+        <div class="interest-icon">🧪</div>
+        <div class="interest-title">RNA Binding Site Prediction</div>
+        <p class="interest-desc">
+          Structural geometry and cavity descriptor–based methods for identifying 
+          RNA small-molecule binding pockets, paired with interpretable ML models.
+        </p>
+      </div>
+
+      <div class="interest-card">
+        <div class="interest-icon">🦠</div>
+        <div class="interest-title">Genomics &amp; Antimicrobial Resistance</div>
+        <p class="interest-desc">
+          Using whole genome sequences and MIC data to build ML models that predict 
+          antimicrobial resistance across drug–bug pairs.
+        </p>
+      </div>
+
+      <div class="interest-card">
+        <div class="interest-icon">🩻</div>
+        <div class="interest-title">Deep Learning for Biomedical Data</div>
+        <p class="interest-desc">
+          Applying CNNs and other deep learning approaches to biomedical imaging and 
+          other biological data where classical methods fall short.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
-
-<!-- LIGHTBOX MODAL -->
-<div class="lb-overlay" id="lbOverlay">
-  <div class="lb-modal">
-    <div class="lb-header">
-      <div>
-        <div class="lb-title">
-          <span class="lb-title-emoji" id="lbEmoji"></span>
-          <span id="lbName"></span>
-        </div>
-        <div class="lb-subtitle" id="lbSub"></div>
-      </div>
-      <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
-    </div>
-    <div class="lb-body">
-      <div class="lb-gallery" id="lbGallery">
-        <div class="lb-gallery-empty" id="lbEmpty">
-          No photos were found. Add images to the corresponding <code>photos/&lt;placeId&gt;/</code> folder and refresh the page.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FULL-SIZE VIEWER -->
-<div class="lb-viewer" id="lbViewer">
-  <button class="lb-viewer-close" id="lbViewerClose" aria-label="Close viewer">✕</button>
-  <img id="lbViewerImg" src="" alt="Travel photo" />
-  <div class="lb-viewer-nav">
-    <button class="lb-viewer-btn" id="lbPrev" aria-label="Previous">←</button>
-    <span class="lb-viewer-counter" id="lbCounter"></span>
-    <button class="lb-viewer-btn" id="lbNext" aria-label="Next">→</button>
-  </div>
-</div>
 
 </main>
 
@@ -1148,176 +876,6 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => revealObs.observe(el));
 
-  /* ── TRAVEL DATA ─────────────────────────────────── */
-  const PLACES = [
-    { id: 'delhi',  emoji: '🏛️', name: 'New Delhi', sub: 'Research Intern · CSIR-IGIB' },
-    { id: 'pilani', emoji: '🎓', name: 'Pilani',     sub: 'Rajasthan · BITS Pilani' },
-    { id: 'next',   emoji: '✈️', name: 'Next destination?', sub: 'Always exploring…' },
-  ];
-
-  /* photos loaded from the static photos folder: { [placeId]: [{ url, name }] } */
-  const PHOTO_FILES = {
-    delhi: [],
-    pilani: [],
-    next: []
-  };
-
-  const photoStore = {};
-  PLACES.forEach(p => {
-    const files = PHOTO_FILES[p.id] || [];
-    photoStore[p.id] = files.map(name => ({
-      url: `photos/${p.id}/${name}`,
-      name: name.replace(/[-_]/g, ' ')
-    }));
-  });
-
-  /* ── BUILD CARDS ─────────────────────────────────── */
-  function buildCards() {
-    const grid = document.getElementById('travelGrid');
-    grid.innerHTML = '';
-    PLACES.forEach(place => {
-      const photos = photoStore[place.id];
-      const card = document.createElement('div');
-      card.className = 'travel-card';
-      card.setAttribute('role', 'button');
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('aria-label', `Open photos of ${place.name}`);
-
-      const thumb = photos.length > 0
-        ? `<img src="${photos[0].url}" alt="${place.name}" />`
-        : `<span class="thumb-placeholder">${place.emoji}</span>`;
-
-      const countBadge = photos.length > 0
-        ? `<span class="photo-count">${photos.length} photo${photos.length !== 1 ? 's' : ''}</span>`
-        : '';
-
-      const addHintIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`;
-
-      card.innerHTML = `
-        <div class="travel-card-thumb">
-          ${thumb}
-          ${countBadge}
-          <div class="add-hint">${addHintIcon} View photos</div>
-        </div>
-        <div class="travel-card-info">
-          <div class="travel-place">${place.name}</div>
-          <div class="travel-state">${place.sub}</div>
-        </div>`;
-
-      card.addEventListener('click', () => openModal(place.id));
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(place.id); });
-      grid.appendChild(card);
-    });
-  }
-
-  buildCards();
-
-  /* ── MODAL STATE ─────────────────────────────────── */
-  let currentPlaceId = null;
-  let viewerImages = [];
-  let viewerIndex = 0;
-
-  function openModal(placeId) {
-    currentPlaceId = placeId;
-    const place = PLACES.find(p => p.id === placeId);
-    document.getElementById('lbEmoji').textContent = place.emoji;
-    document.getElementById('lbName').textContent = place.name;
-    document.getElementById('lbSub').textContent = place.sub;
-    renderGallery();
-    document.getElementById('lbOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    document.getElementById('lbOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-    buildCards();
-  }
-
-  document.getElementById('lbClose').addEventListener('click', closeModal);
-  document.getElementById('lbOverlay').addEventListener('click', e => {
-    if (e.target === document.getElementById('lbOverlay')) closeModal();
-  });
-
-  /* ── RENDER GALLERY ──────────────────────────────── */
-  function renderGallery() {
-    const gallery = document.getElementById('lbGallery');
-    const empty = document.getElementById('lbEmpty');
-    const photos = photoStore[currentPlaceId];
-
-    if (photos.length === 0) {
-      gallery.innerHTML = '';
-      gallery.appendChild(empty);
-      empty.style.display = 'block';
-      return;
-    }
-    empty.style.display = 'none';
-    gallery.innerHTML = '';
-
-    photos.forEach((photo, idx) => {
-      const wrap = document.createElement('div');
-      wrap.className = 'lb-img-wrap';
-
-      const img = document.createElement('img');
-      img.src = photo.url;
-      img.alt = photo.name || 'Travel photo';
-      img.addEventListener('click', () => openViewer(idx));
-
-      const del = document.createElement('button');
-      del.className = 'lb-img-del';
-      del.innerHTML = '✕';
-      del.setAttribute('aria-label', 'Remove photo');
-      del.addEventListener('click', e => {
-        e.stopPropagation();
-        photoStore[currentPlaceId].splice(idx, 1);
-        renderGallery();
-      });
-
-      wrap.appendChild(img);
-      wrap.appendChild(del);
-      gallery.appendChild(wrap);
-    });
-  }
-
-  /* ── FILE UPLOAD REMOVED ─────────────────────────── */
-  /* Photo viewing now loads static files from `photos/<placeId>/`. */
-
-  /* ── FULL-SIZE VIEWER ────────────────────────────── */
-  function openViewer(idx) {
-    viewerImages = photoStore[currentPlaceId];
-    viewerIndex = idx;
-    updateViewer();
-    document.getElementById('lbViewer').classList.add('open');
-  }
-
-  function updateViewer() {
-    document.getElementById('lbViewerImg').src = viewerImages[viewerIndex].url;
-    document.getElementById('lbCounter').textContent = `${viewerIndex + 1} / ${viewerImages.length}`;
-  }
-
-  document.getElementById('lbViewerClose').addEventListener('click', () => {
-    document.getElementById('lbViewer').classList.remove('open');
-  });
-
-  document.getElementById('lbPrev').addEventListener('click', () => {
-    viewerIndex = (viewerIndex - 1 + viewerImages.length) % viewerImages.length;
-    updateViewer();
-  });
-
-  document.getElementById('lbNext').addEventListener('click', () => {
-    viewerIndex = (viewerIndex + 1) % viewerImages.length;
-    updateViewer();
-  });
-
-  document.addEventListener('keydown', e => {
-    if (document.getElementById('lbViewer').classList.contains('open')) {
-      if (e.key === 'ArrowLeft') { viewerIndex = (viewerIndex - 1 + viewerImages.length) % viewerImages.length; updateViewer(); }
-      if (e.key === 'ArrowRight') { viewerIndex = (viewerIndex + 1) % viewerImages.length; updateViewer(); }
-      if (e.key === 'Escape') document.getElementById('lbViewer').classList.remove('open');
-    } else if (document.getElementById('lbOverlay').classList.contains('open')) {
-      if (e.key === 'Escape') closeModal();
-    }
-  });
 </script>
 
 </body>
