@@ -1,4 +1,4 @@
-# Vinayak Guptas Portfolio
+# Vinayak Gupta's Portfolio
 
 This is my personal portfolio website built with React and Vite.
 
